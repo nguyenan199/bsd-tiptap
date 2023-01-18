@@ -214,11 +214,59 @@
               @click="selectMention(index)"
             >
               <v-list-item-avatar size="20" v-if="item.avatar">
-                <v-img :alt="`${item.text} avatar`" :src="item.avatar" />
+                <v-avatar
+                  :size="size"
+                  :color="color(name)"
+                  class="text-h6"
+                >
+                  <v-img
+                    v-if="isShowImage"
+                    :src="item.avatar"
+                    :alt="alt"
+                    @error="isShowImage = false"
+                  >
+                    <template v-slot:placeholder>
+                      <v-row class="fill-height ma-0" align="center" justify="center">
+                        <v-progress-circular
+                          indeterminate
+                          size="22"
+                          color="grey lighten-5"
+                        ></v-progress-circular>
+                      </v-row>
+                    </template>
+                  </v-img>
+                  <span v-else class="text-uppercase white--text">{{
+                    item.name
+                  }}</span>
+                </v-avatar>
               </v-list-item-avatar>
 
               <v-list-item-content>
-                <v-list-item-title>{{ item.text }}</v-list-item-title>
+                <v-list-item-title class="text-title maxline2-tooltip">
+                  {{ item.fullName }}
+                  <span v-if="item.userName || item.username" class="text-username">
+                    ({{item.username }})</span>
+                </v-list-item-title>
+                <v-list-item-subtitle
+                  v-if="item.positionName"
+                  class="text-ellipsis text-position maxline2-tooltip"
+                >
+                  {{ item.positionName }}
+                </v-list-item-subtitle>
+                <v-list-item-subtitle
+                  v-if="item.groupPathName"
+                  class="text-ellipsis text-position maxline2-tooltip"
+                >
+                  {{ item.groupPathName }}
+                </v-list-item-subtitle>
+                <v-list-item-title v-if="item.email" class="text-phone">
+                  <i class="app-icon icon-mail icon-size-14 mr-2"></i>
+                  {{ item.email }}
+                </v-list-item-title>
+                <v-list-item-title v-if="item.phone" class="text-phone">
+                  <i class="app-icon icon-phone-call icon-size-14 mr-2"></i>
+                  {{ item.phone }}
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>

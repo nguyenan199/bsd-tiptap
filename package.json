@@ -1,6 +1,6 @@
 {
   "name": "bsd-tiptap-ver2",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "description": "Awesome and extendable rich text editor component for Vuetify projects using tiptap",
   "homepage": "https://github.com/peepi-com-br/vuetify-tiptap",

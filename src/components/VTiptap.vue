@@ -188,7 +188,7 @@
           :position-x="mentionConfig.x"
           :position-y="mentionConfig.y"
           offset-y
-          max-height="200px"
+          max-height="150px"
         >
           <v-progress-linear
             v-if="mentionConfig.loading"

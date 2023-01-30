@@ -1,12 +1,12 @@
 {
-  "name": "@peepi/vuetify-tiptap",
-  "version": "1.2.3",
+  "name": "bsd-tiptap-ver2",
+  "version": "1.0.6",
   "license": "MIT",
   "description": "Awesome and extendable rich text editor component for Vuetify projects using tiptap",
   "homepage": "https://github.com/peepi-com-br/vuetify-tiptap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/peepi-com-br/vuetify-tiptap.git"
+    "url": "git+https://github.com/peepi-com-br/vuetify-tiptap.git"
   },
   "bugs": {
     "url": "https://github.com/peepi-com-br/vuetify-tiptap/issues"
@@ -133,5 +133,6 @@
   },
   "engines": {
     "node": ">=12"
-  }
+  },
+  "author": "nguyenan1998"
 }

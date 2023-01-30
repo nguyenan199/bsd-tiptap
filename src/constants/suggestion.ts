@@ -17,6 +17,10 @@ export function renderSuggestion(component) {
       onUpdate(props) {
         mentionConfig.items = props.items;
       },
+      scrollComment(id) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ behavior: 'smooth', block: "nearest" });
+      },
 
       onKeyDown(props) {
         const { event } = props;
@@ -32,12 +36,19 @@ export function renderSuggestion(component) {
             (mentionConfig.selected + mentionConfig.items.length - 1) %
             mentionConfig.items.length;
 
+          const item = mentionConfig.items[mentionConfig.selected]
+          setTimeout(() => {
+            this.scrollComment(item.value);
+          }, 200);
           return true;
         }
 
         if (event.key === "ArrowDown") {
           mentionConfig.selected = (mentionConfig.selected + 1) % mentionConfig.items.length;
-
+          const item = mentionConfig.items[mentionConfig.selected]
+          setTimeout(() => {
+            this.scrollComment(item.value);
+          }, 200);
           return true;
         }
 
